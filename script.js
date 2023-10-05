@@ -22,6 +22,8 @@ var run = false;  // boolean variable for stopwatch control
 var start_btn = true; // boolean for start button 
 var pause_btn = false; // boolean for pause button
 var resume_btn = false; // boolean for resume button
+var reset_btn = true; // boolean for stop button
+
 
 
 start_button.addEventListener('click' , function(){
@@ -37,20 +39,32 @@ start_button.addEventListener('click' , function(){
     }
 });
 
-stop_button.addEventListener("click" , stop_timer)
+stop_button.addEventListener("click" , function(){
+    if(reset_btn == true){
+        reset_timer();
+    }
+
+})
 
 function start_timer(){
     run = true; 
     start_btn = false; // start button state->off
     pause_btn = true; // pause button state-> on
-    timer();
+    reset_btn = false; // stop button state-> off
+
     start_button.innerHTML = "pause"; // 'start' text -> 'puase' text
+    stop_button.innerHTML = "Lap"; // 'stop' text -> 'Lap' text
+
+    timer();
 }
 
-function stop_timer(){
+function reset_timer(){
     run = false;
+
     start_btn = true ; // start button state -> on
-    start_button.innerHTML = "Start";
+    
+    start_button.innerHTML = "Start"; // 'resume' text -> 'start' text
+    
     hours_num=0;
     minutes_num=0;
     seconds_num=0;
@@ -63,16 +77,25 @@ function stop_timer(){
 
 function pause_timer(){
     run = false;
+
     pause_btn = false; // pause button state -> off
     resume_btn = true; // resume button state -> on
+    reset_btn = true; // stop button state -> on
+
     start_button.innerHTML = "resume"; // 'pause' text -> 'resume' text
+    stop_button.innerHTML = "reset"; // 'Lap' text -> 'Reset' text
 }
 
 function resume_timer(){
     run = true;
+
     pause_btn = true; // pause button state -> on
-    resume_btn = false; // resume button state -> off
+    resume_btn = false; // resume button state -> off\
+    stop_btn = false; // stop button state -> off
+
     start_button.innerHTML = "pause"; // 'resume' text -> 'pause' text
+    stop_button.innerHTML = "Lap"; // 'reset' text -> 'Lap' text
+
     timer();
 }
 
