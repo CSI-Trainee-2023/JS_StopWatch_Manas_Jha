@@ -44,9 +44,14 @@ html body{
 }
 
 #Lap-section{
-    margin-top: 3vw;
+    /* margin-top: 3vw; */
+    margin: 0 auto;
+    margin-top: 4vw;
     height:90vh;
     width: 50%;
     background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    /* align-self: center; */ 
 }
 
