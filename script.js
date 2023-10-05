@@ -28,9 +28,9 @@ let milliseconds_Str = "";
 var run = false;  // boolean variable for stopwatch control
 //-------------------------------------------------
 
-//Boolean Variables
+//Boolean Variables for button
 var start_btn = true; // boolean for start button 
-var reset_btn = true; // boolean for stop button
+var reset_btn = true; // boolean for reset button
 var pause_btn = false; // boolean for pause button
 var resume_btn = false; // boolean for resume button
 var lap_btn = false; // boolean for lap button
@@ -171,7 +171,7 @@ function timer(){
     if(run){
         milliseconds_num++;
 
-        if(milliseconds_num == 1000){
+        if(milliseconds_num == 100){
             milliseconds_num = 0;
             seconds_num++;
         }
@@ -204,7 +204,7 @@ function timer(){
         // document.getElementById('seconds-text').innerHTML = "" + seconds_num;;
         // document.getElementById('milli_seconds-text').innerHTML = "" + milliseconds_num;
 
-        setTimeout("timer()" ,0.01);
+        setTimeout("timer()" ,10);
     }
 
 }
