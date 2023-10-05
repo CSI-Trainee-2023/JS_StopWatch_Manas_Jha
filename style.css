@@ -43,3 +43,10 @@ html body{
     background-color: rgb(255, 255, 255);
 }
 
+#Lap-section{
+    margin-top: 3vw;
+    height:90vh;
+    width: 50%;
+    background-color: aqua;
+}
+

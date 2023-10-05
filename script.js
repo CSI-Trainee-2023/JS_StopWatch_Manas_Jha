@@ -7,6 +7,8 @@ let milli_seconds_time = document.getElementById('milli_seconds-text');
 
 let start_button = document.getElementById('button1');
 let stop_button = document.getElementById('button2');
+
+let Lap_Section = document.getElementById('Lap-section');
 //-------------------------------------------------
 
 // time variables
@@ -14,17 +16,49 @@ let hours_num = 0;
 let minutes_num = 0;
 let seconds_num = 0;
 let milliseconds_num = 0;
+
+
+let hours_Str = "";
+let minutes_Str = "";
+let seconds_Str = "";
+let milliseconds_Str = "";
+
 // ------------------------------------------------
 
 var run = false;  // boolean variable for stopwatch control
 //-------------------------------------------------
 
+//Boolean Variables
 var start_btn = true; // boolean for start button 
 var pause_btn = false; // boolean for pause button
 var resume_btn = false; // boolean for resume button
 var reset_btn = true; // boolean for stop button
+//---------------------------------------------------
 
 
+//Ctrl Event Manager
+
+document.addEventListener('keydown' ,function(event){
+    event.preventDefault();
+    if(event.ctrlKey && event.key === 's'){
+        // event.preventDefault();
+        start_timer();
+    }
+    else if(event.ctrlKey && event.key === 'x'){
+        // event.preventDefault();
+        pause_timer();
+    }
+
+    else if(event.ctrlKey && event.key === 'r'){
+        // event.preventDefault();
+        reset_timer();
+    }
+    else if(event.ctrlKey && event.key === "p" && start_btn == false){
+        resume_timer();
+    }
+});
+
+//--------------------------------------------------------------------
 
 start_button.addEventListener('click' , function(){
     if(start_btn==true){
@@ -91,7 +125,7 @@ function resume_timer(){
 
     pause_btn = true; // pause button state -> on
     resume_btn = false; // resume button state -> off\
-    stop_btn = false; // stop button state -> off
+    reset_btn = false; // stop button state -> off
 
     start_button.innerHTML = "pause"; // 'resume' text -> 'pause' text
     stop_button.innerHTML = "Lap"; // 'reset' text -> 'Lap' text
@@ -99,12 +133,16 @@ function resume_timer(){
     timer();
 }
 
+function Lap_time(){
+    Lap_Section.innerHTML =  hours_Str + ":"+ minutes_Str + ":" + seconds_Str + ":" + milliseconds_Str ;
+}
+
 
 function timer(){
     if(run){
         milliseconds_num++;
 
-        if(milliseconds_num == 60){
+        if(milliseconds_num == 1000){
             milliseconds_num = 0;
             seconds_num++;
         }
@@ -119,6 +157,14 @@ function timer(){
             hours_num++;
         }
 
+
+        milliseconds_Str = "" + milliseconds_num;
+        seconds_Str = "" + seconds_num;
+        minutes_Str = "" + minutes_num;
+        hours_Str = "" + hours_num ;
+
+
+
         milli_seconds_time.innerHTML = "" + milliseconds_num;
         seconds_time.innerHTML = "" + seconds_num;
         minutes_time.innerHTML = "" + minutes_num;
@@ -129,7 +175,7 @@ function timer(){
         // document.getElementById('seconds-text').innerHTML = "" + seconds_num;;
         // document.getElementById('milli_seconds-text').innerHTML = "" + milliseconds_num;
 
-        setTimeout("timer()" ,10);
+        setTimeout("timer()" ,0.01);
     }
 
 }
