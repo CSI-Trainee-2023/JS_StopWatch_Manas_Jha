@@ -41,22 +41,25 @@ var lap_btn = false; // boolean for lap button
 
 document.addEventListener('keydown' ,function(event){
     event.preventDefault();
-    if(event.ctrlKey && event.key === 's' && start_btn==true){ // for "ctrl+s" to start timer
+    if(event.ctrlKey && event.key === 's' && start_btn==true && pause_btn == false && resume_btn == false && lap_btn == false){ // for "ctrl+s" to start timer
         // event.preventDefault();
         start_timer();
     }
-    else if(event.ctrlKey && event.key === 'x' && reset_btn == false){ // for "ctrl+x" to pause timer and works only when the reset button is not working 
+    else if(event.ctrlKey && event.key === 'x' && start_btn== false && reset_btn == false && resume_btn == false){ // for "ctrl+x" to pause timer and works only when the reset button is not working 
         // event.preventDefault();
         pause_timer();
     }
 
-    else if(event.ctrlKey && event.key === 'r'){ // for "ctrl+r" to reset the timer
+    else if(event.ctrlKey && event.key === 'r' ){ // for "ctrl+r" to reset the timer
         // event.preventDefault();
-        stop_button.innerHtml = "Reset" ; // 'Lap' text -> 'Reset' text
+
         reset_timer();
     }
-    else if(event.ctrlKey && event.key === "p" && start_btn == false){ //for "ctrl+p" to resume the timer and works only when start button is not working 
+    else if(event.ctrlKey && event.key === "p" && start_btn == false && pause_btn == false && lap_btn == false){ //for "ctrl+p" to resume the timer and works only when start button is not working 
         resume_timer();
+    }
+    else if(event.ctrlKey && event.key == "l" && pause_btn == true){
+        Lap_time();
     }
 });
 
@@ -104,10 +107,17 @@ function reset_timer(){
     run = false;
 
     start_btn = true ; // start button state -> on
+    
+    pause_btn = false; // pause button state -> off
+    resume_btn = false; // resume button state -> off
     lap_btn = false; // Lap button state -> off
+
     // stop_button.innerHtml = "Reset" ; // 'Lap' text -> 'Reset' text
     start_button.innerHTML = "Start"; // 'resume' text -> 'start' text
-    
+    stop_button.innerHtml = "Reset" ; // 'Lap' text -> 'Reset' text
+
+    Lap_Section.innerHTML = "";
+
     hours_num=0;
     minutes_num=0;
     seconds_num=0;
@@ -139,7 +149,7 @@ function resume_timer(){
     resume_btn = false; // resume button state -> off\
     reset_btn = false; // stop button state -> off
     lap_btn = true ; // lap button state -> on
-    
+
     start_button.innerHTML = "pause"; // 'resume' text -> 'pause' text
     stop_button.innerHTML = "Lap"; // 'reset' text -> 'Lap' text
 
