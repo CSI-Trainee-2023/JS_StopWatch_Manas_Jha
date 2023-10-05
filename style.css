@@ -32,6 +32,7 @@ html body{
     border-radius: 2vw;
     text-transform: capitalize;
     font-weight: 500;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgb(0,0,0 , 0.5);
 
 }
 
