@@ -5,8 +5,8 @@ let minutes_time = document.getElementById('minutes-text');
 let seconds_time = document.getElementById('seconds-text');
 let milli_seconds_time = document.getElementById('milli_seconds-text');
 
-let start_button = document.getElementById('start-btn');
-let stop_button = document.getElementById('stop-btn');
+let start_button = document.getElementById('button1');
+let stop_button = document.getElementById('button2');
 //-------------------------------------------------
 
 // time variables
@@ -17,20 +17,64 @@ let milliseconds_num = 0;
 // ------------------------------------------------
 
 var run = false;  // boolean variable for stopwatch control
+//-------------------------------------------------
 
-start_button.addEventListener('click' , start)
+var start_btn = true; // boolean for start button 
+var pause_btn = false; // boolean for pause button
+var resume_btn = false; // boolean for resume button
 
-stop_button.addEventListener("click" , stop)
 
-function start(){
+start_button.addEventListener('click' , function(){
+    if(start_btn==true){
+        start_timer();// calling start function
+    }
+    else if (pause_btn == true){
+        pause_timer(); // calling pause function
+
+    }
+    else if(resume_btn == true){
+        resume_timer(); // calling resume function
+    }
+});
+
+stop_button.addEventListener("click" , stop_timer)
+
+function start_timer(){
+    run = true; 
+    start_btn = false; // start button state->off
+    pause_btn = true; // pause button state-> on
+    timer();
+    start_button.innerHTML = "pause"; // 'start' text -> 'puase' text
+}
+
+function stop_timer(){
+    run = false;
+    start_btn = true ; // start button state -> on
+    start_button.innerHTML = "Start";
+    hours_num=0;
+    minutes_num=0;
+    seconds_num=0;
+    milliseconds_num=0;
+    milli_seconds_time.innerHTML = "" + milliseconds_num;
+    seconds_time.innerHTML = "" + seconds_num;
+    minutes_time.innerHTML = "" + minutes_num;
+    hours_time.innerHTML = "" + hours_num;
+}
+
+function pause_timer(){
+    run = false;
+    pause_btn = false; // pause button state -> off
+    resume_btn = true; // resume button state -> on
+    start_button.innerHTML = "resume"; // 'pause' text -> 'resume' text
+}
+
+function resume_timer(){
     run = true;
+    pause_btn = true; // pause button state -> on
+    resume_btn = false; // resume button state -> off
+    start_button.innerHTML = "pause"; // 'resume' text -> 'pause' text
     timer();
 }
-
-function stop(){
-    run = false;
-}
-
 
 
 function timer(){
