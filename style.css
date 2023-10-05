@@ -45,13 +45,21 @@ html body{
 
 #Lap-section{
     /* margin-top: 3vw; */
+    overflow: hidden;
     margin: 0 auto;
     margin-top: 4vw;
-    height:90vh;
-    width: 50%;
-    background-color: aqua;
+    height:auto;
+    width: 40%;
+    background-color: black;
     display: flex;
     flex-direction: column;
-    /* align-self: center; */ 
+    align-items: center;
+    box-shadow: 0.3vw 0.3vw 0.3vw 0.3vw  rgb(0,0,0 , 0.5);
+}
+
+#Lap-section h3{
+    font-size: 3vw;
+    font-weight: 500;
+    color: aqua;
 }
 
