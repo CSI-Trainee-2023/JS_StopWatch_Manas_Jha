@@ -12,7 +12,33 @@ html body{
     display: flex;
     justify-content: center;
 }
+#watch h2{
+    font-size: 10vw;
+}
 
 #buttons{
     display: flex;
+    height : 10vh;
+    background-color: aqua;
+    justify-content: center;
+    align-items: center;
 }
+
+#buttons button{
+    margin-right: 2vw;
+    height:80%;
+    width: 10vw;
+    font-size: 2vw;
+    border-radius: 2vw;
+    text-transform: capitalize;
+    font-weight: 500;
+
+}
+
+#buttons button:hover{
+    color:rgb(237, 84, 84);
+
+
+    background-color: rgb(255, 255, 255);
+}
+
