@@ -62,17 +62,32 @@ html body{
 }
 
 #buttons button:hover{
-    color:white;
+
     cursor:pointer;
 }
-#button1:hover{
+#button1{
+    color:white;
     background-color: rgb(71, 239, 71);
+}
+#button1:hover{
+    color:rgb(71, 239, 71);
+    background-color: #ffffff;
+}
+
+#button2{
+    color:white;
+    background-color: black;
+}
+#button2:hover{
+    color:black;
+    background-color: white;
 }
 
 #Lap-section{
     /* margin-top: 3vw; */
     overflow-y:auto ;
     overflow-x: hidden;
+
     margin: 0 auto;
     margin-top: 4vw;
     height:60vh;
@@ -85,9 +100,28 @@ html body{
     border-radius: 2vw ;
 }
 
-#Lap-section h3{
+.heading{
+    height:7vh;
+    width:100%;
+    background-color: rgb(27, 242, 242);
+    color:#ffffff;
+    font-size: 3vw;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+#Laps-list{
+
+    height:90%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Laps-list h3{
     font-size: 3vw;
     font-weight: 500;
     color: rgb(244, 250, 250);
 }
-

@@ -8,7 +8,7 @@ let milli_seconds_time = document.getElementById('milli_seconds-text');
 let start_button = document.getElementById('button1');
 let stop_button = document.getElementById('button2');
 
-let Lap_Section = document.getElementById('Lap-section');
+let Lap_Section = document.getElementById('Laps-list');
 //-------------------------------------------------
 
 // time variables
@@ -80,11 +80,11 @@ start_button.addEventListener('click' , function(){
 
 stop_button.addEventListener("click" , function(){
     if(reset_btn == true){
-        reset_timer();
+        reset_timer();// calling reset function
     }
 
     else if(lap_btn == true){
-        Lap_time();
+        Lap_time(); // calling Lap function
     }
 
 })
@@ -145,14 +145,14 @@ function pause_timer(){
 function resume_timer(){
     run = true;
 
-    pause_btn = true; // pause button state -> on
-    resume_btn = false; // resume button state -> off\
+    resume_btn = false; // resume button state -> off
     reset_btn = false; // stop button state -> off
+    
+    pause_btn = true; // pause button state -> on
     lap_btn = true ; // lap button state -> on
 
     start_button.innerHTML = "pause"; // 'resume' text -> 'pause' text
     stop_button.innerHTML = "Lap"; // 'reset' text -> 'Lap' text
-
     timer();
 }
 
