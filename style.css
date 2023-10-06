@@ -144,3 +144,35 @@ main{
     font-weight: 500;
     color: rgb(244, 250, 250);
 }
+
+
+@media (max-width:599px) {
+    
+    main{
+        flex-direction: column;
+    }
+
+    #watch-section{
+        width:100%;
+        height:50vh;
+    }
+    
+    #watch{
+        height:65%;
+        width:60vw;
+    }
+
+    #Lap-section{
+        height:40vh;
+        width:70%;
+    }
+
+    #buttons{
+        height:20%;
+    }
+    #buttons button{
+        height: 50%;
+        width: 20vw;
+        font-size: 2vw;
+    }
+}
