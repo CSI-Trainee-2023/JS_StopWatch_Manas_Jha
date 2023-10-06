@@ -7,27 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section id="watch">
+    <main>
+        <section id = "watch-section">
+            
+            <div id="watch">
+                <h2 id="hours-text">00</h2>
+                <h2>:</h2>
+                <h2 id="minutes-text">00</h2>
+                <h2>:</h2>
+                <h2 id="seconds-text">00</h2>
+                <h2>:</h2>
+                <h2 id="milli_seconds-text">00</h2>
+            </div>
+        
+            <div id="buttons">
+                <button id="button1">start</button>
+        
+                <button id="button2">reset</button>
+            </div>
+        </section>
+    
+        <section id="Lap-section">
+            <div class="heading">LAPS</div>
+            <div id = "Laps-list"></div>
+        </section>
 
-        <h2 id="hours-text">00</h2>
-        <h2>:</h2>
-        <h2 id="minutes-text">00</h2>
-        <h2>:</h2>
-        <h2 id="seconds-text">00</h2>
-        <h2>:</h2>
-        <h2 id="milli_seconds-text">00</h2>
-    </section>
-
-    <section id="buttons">
-        <button id="button1">start</button>
-
-        <button id="button2">reset</button>
-    </section>
-
-    <section id="Lap-section">
-        <div class="heading">LAPS</div>
-        <div id = "Laps-list"></div>
-    </section>
+    </main>
 
     <script src="script.js"></script>
 </body>

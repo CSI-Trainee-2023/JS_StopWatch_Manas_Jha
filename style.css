@@ -13,12 +13,28 @@ html body{
     
 }
 
+main{
+    margin-top:5vw ;
+    display: flex;
+
+    
+    justify-content: space-evenly;
+    /* align-items: center; */
+}
+
+#watch-section{
+    /* margin: 0 auto; */
+    /* background-color: aqua; */
+    width:70%;
+}
+
+
 #watch{
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    height:60vh;
-    width:30%;
+    height:30vw;
+    width:45%;
 
     border-radius: 50%;
     align-items: center;
@@ -37,13 +53,14 @@ html body{
 
 }
 #watch h2{
+    margin-left:0.5vw;
     font-size: 5vw;
     color: rgb(255, 255, 255);
 }
 
 #buttons{
     display: flex;
-    height : 10vh;
+    height : 5vw;
     margin-top:2vw;
     /* background-color: aqua; */
     justify-content: center;
@@ -92,19 +109,20 @@ html body{
     margin: 0 auto;
     margin-top: 4vw;
     height:60vh;
-    width: 30%;
-    background-color: black;
+    width: 20%;
+    background-color: rgb(0,0,0 , 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0.3vw 0.3vw 0.3vw 0.3vw  rgb(0,0,0 , 0.5);
-    border-radius: 2vw ;
+    border-radius: 0.1vw;
+
 }
 
 .heading{
     height:7vh;
     width:100%;
-    background-color: rgb(27, 242, 242);
+    /* background-color: rgb(27, 242, 242); */
     color:#ffffff;
     font-size: 3vw;
     font-weight: 500;
@@ -113,7 +131,7 @@ html body{
 
 
 #Laps-list{
-
+    margin-top: 1vw;
     height:90%;
     width:100%;
     display: flex;
@@ -122,7 +140,7 @@ html body{
 }
 
 #Laps-list h3{
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: 500;
     color: rgb(244, 250, 250);
 }
