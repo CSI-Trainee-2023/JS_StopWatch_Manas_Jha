@@ -36,6 +36,9 @@ var resume_btn = false; // boolean for resume button
 var lap_btn = false; // boolean for lap button
 //---------------------------------------------------
 
+// Key for Local Storage
+var key = 1;
+//------------------------------------------
 
 //Ctrl Event Manager
 
@@ -147,7 +150,7 @@ function resume_timer(){
 
     resume_btn = false; // resume button state -> off
     reset_btn = false; // stop button state -> off
-    
+
     pause_btn = true; // pause button state -> on
     lap_btn = true ; // lap button state -> on
 
@@ -162,8 +165,11 @@ function Lap_time(){
     var time_Str =  hours_Str + ":"+ minutes_Str + ":" + seconds_Str + ":" + milliseconds_Str ;
     new_lap_time.textContent = time_Str;
 
-    Lap_Section.appendChild(new_lap_time);
+    // if(key in localStorage.key())
+    localStorage.setItem(key, time_Str);
 
+    Lap_Section.appendChild(new_lap_time);
+    key++;
 }
 
 

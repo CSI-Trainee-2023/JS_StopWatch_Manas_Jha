@@ -44,6 +44,7 @@ html body{
 #buttons{
     display: flex;
     height : 10vh;
+    margin-top:2vw;
     /* background-color: aqua; */
     justify-content: center;
     align-items: center;
